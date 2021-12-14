@@ -1,14 +1,13 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+
+const postService = require('../service/postsService')
 
 router.get('/posts',  async function(req, res){
-  res.json([{
-    id:1,
-    title: 'REST API:Métodos',
-    content:'...',
-    date: new Date()
-  }])
-})
+  const posts = await postService.getPosts();
+  res.json(posts)
+});
+
 router.get('/posts/:id',  async function(req, res){
 
 })
